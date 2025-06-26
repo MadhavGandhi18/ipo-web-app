@@ -1,25 +1,101 @@
+/* Main card container */
 .ipo-card {
-  width: 320px;
-  padding: 20px 24px;
-  margin: 8px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform .2s ease, box-shadow .2s ease;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
 }
+
 .ipo-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
+
+/* Card Header: Logo and Company Name */
+.ipo-card-header {
+  display: flex;
+  align-items: center;
+  gap:1rem;
+  margin-bottom: 1.2rem;
+}
+
 .ipo-logo {
-  height: 80px;
+  height: 70px;
+  width: 70px;
   object-fit: contain;
-  margin: 0 auto 16px;
-  display: block;
+  border-radius: 8px;
 }
-.ipo-title {
-  font-family: 'Inter', sans-serif;
+
+.ipo-company-name {
+  font-size: 1.8rem;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 24px;
-  margin-bottom: 8px;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.ipo-card-body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.data-point {
+  display: flex;
+  flex-direction: column;
+}
+
+.data-point .label {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.data-point .value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Card Footer: RHP and DRHP buttons */
+.ipo-card-footer {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.btn-rhp {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border: 1px solid #91d5ff;
+}
+
+.btn-rhp:hover {
+  background-color: #d9f2ff;
+}
+
+.btn-drhp {
+  background-color: #EF5332;
+  color: #ffffff;
+  border: 1px solid #ffd591;
+}
+
+.btn-drhp:hover {
+  background-color: #EF5332;
 }

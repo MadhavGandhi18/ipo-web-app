@@ -16,7 +16,8 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <h2 className="homepage-title">IPO Listing</h2>
+      <h2 className="homepage-title">Upcoming IPO</h2>
+      <p className="homepage-description">Companies that have filled for an IPO with SEBI. Few details might be disclosed by the companies later.</p>
 
       <div className="ipo-container">
         {ipos.map((ipo, index) => (

@@ -17,11 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from django.conf.urls.static import static 
+from django.conf.urls.static import static
+from .views import login_view
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('ipo_app.urls')),
+    path('api/login/', login_view),
+    path('api/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
