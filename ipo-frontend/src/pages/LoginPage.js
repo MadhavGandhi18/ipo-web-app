@@ -16,12 +16,13 @@ const LoginPage = () => {
         password
       });
 
-      // Get the tokens from response
-      const { access, refresh } = response.data;
+      // Get the tokens and username from response
+      const { access, refresh, username } = response.data;
 
       // Store them in localStorage
       localStorage.setItem('accessToken', access);
       localStorage.setItem('refreshToken', refresh);
+      localStorage.setItem('username', username);
 
       // Redirect to dashboard or another page
       window.location.href = '/admin/dashboard';
