@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
   FiGrid,
   FiShoppingCart,
@@ -11,12 +12,12 @@ import {
 import { BsFillBriefcaseFill } from 'react-icons/bs';
 
 const Sidebar = () => {
-  const activeLink = 'Dashboard';
+  const location = useLocation();
 
   const navItems = {
     menu: [
       { name: 'Dashboard', icon: FiGrid, href: '/admin/dashboard' },
-      { name: 'Manage IPO', icon: FiShoppingCart, href: '#' },
+      { name: 'Manage IPO', icon: FiShoppingCart, href: '/admin/manage-ipo' },
       { name: 'IPO Subscription', icon: FiFileText, href: '#' },
       { name: 'IPO Allotment', icon: FiFileText, href: '#' },
     ],
@@ -28,19 +29,22 @@ const Sidebar = () => {
     ],
   };
 
-  const NavLink = ({ item }) => (
-    <a
-      href={item.href}
-      className={`flex items-center p-3 rounded-lg transition-colors text-sm ${
-        activeLink === item.name
-          ? 'bg-blue-50 text-blue-600'
-          : 'text-gray-700 hover:bg-gray-100'
-      }`}
-    >
-      <item.icon className="w-5 h-5 mr-4" />
-      <span className="font-medium">{item.name}</span>
-    </a>
-  );
+  const NavLink = ({ item }) => {
+    const isActive = location.pathname === item.href;
+    return (
+      <Link
+        to={item.href}
+        className={`flex items-center p-3 rounded-lg transition-colors text-sm ${
+          isActive
+            ? 'bg-blue-50 text-blue-600'
+            : 'text-gray-700 hover:bg-gray-100'
+        }`}
+      >
+        <item.icon className="w-5 h-5 mr-4" />
+        <span className="font-medium">{item.name}</span>
+      </Link>
+    );
+  };
 
   return (
     <aside className="h-screen w-72 bg-white p-6 flex flex-col border-r">

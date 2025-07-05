@@ -5,6 +5,7 @@ import AdminLayout from './layouts/AdminLayout';
 import HomePage from './pages/homepage';
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/AdminDashboard';
+import ManageIPO from './pages/ManageIPO';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         {/* Admin Dashboard Route */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="manage-ipo" element={<ManageIPO />} />
         </Route>
       </Routes>
     </Router>
